@@ -1,7 +1,8 @@
 {
   "name": "chatty",
   "displayName": "chatty",
-  "description": "Chats",
+  "publisher": "ruarfff",
+  "description": "Testing chat stuff",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.96.0"
@@ -10,14 +11,32 @@
     "Other"
   ],
   "activationEvents": [],
+  "extensionDependencies": [
+    "github.copilot-chat"
+  ],
   "main": "./out/extension.js",
   "contributes": {
+    "chatParticipants": [
+      {
+        "id": "chatty",
+        "name": "chatty",
+        "description": "A chat participant that says hello world."
+      }
+    ],
     "commands": [
       {
-        "command": "chatty.helloWorld",
-        "title": "Hello World"
+        "command": "chatty.summarizeSomething",
+        "title": "Summarize Something"
       }
-    ]
+    ],
+    "menus": {
+      "view/item/context": [
+        {
+          "command": "chatty.summarizeSomething",
+          "when": "viewItem == objectExplorer && viewItem =~ /^()/"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
