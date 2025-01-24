@@ -22,21 +22,7 @@
         "name": "chatty",
         "description": "A chat participant that says hello world."
       }
-    ],
-    "commands": [
-      {
-        "command": "chatty.summarizeSomething",
-        "title": "Summarize Something"
-      }
-    ],
-    "menus": {
-      "view/item/context": [
-        {
-          "command": "chatty.summarizeSomething",
-          "when": "viewItem == objectExplorer && viewItem =~ /^()/"
-        }
-      ]
-    }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
